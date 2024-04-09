@@ -2,7 +2,6 @@ import unittest
 from exercise2 import is_valid_email  # Adjust this import based on your project structure
 
 class TestExercise2(unittest.TestCase):
-    
     def test_is_valid_email(self):
         test_cases = [
             ('example@example.com', True),

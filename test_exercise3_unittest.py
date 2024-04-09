@@ -10,7 +10,8 @@ class TestExercise3(unittest.TestCase):
         self.db_credentials = {
             'dbname': 'testdb', 'user': 'testuser', 'password': 'secret', 'host': 'localhost', 'port': '5432'
         }
-    
+
+
     @patch('exercise3.psycopg2.connect')
     def test_successful_retrieval(self, mock_psycopg2_connect):
         table_name = 'test_table'
@@ -27,7 +28,7 @@ class TestExercise3(unittest.TestCase):
         mock_cur.execute.assert_called_once_with('SELECT * FROM %s', (table_name,))
         self.assertEqual(rows, [('Row1',1), ('Row2',2)])
 
-    
+
     @patch('exercise3.psycopg2.connect')
     def test_tabel_does_not_exist(self, mock_psycopg2_connect):
         table_name = 'test_table2'
@@ -104,7 +105,7 @@ class TestExercise3(unittest.TestCase):
         mock_psycopg2_connect.side_effect = psycopg2.OperationalError('database connection timeout')
 
         result = get_all_rows_from_table(self.db_credentials, table_name)
-        
+
         self.assertIsNone(result)
 
 

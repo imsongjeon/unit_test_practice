@@ -2,7 +2,6 @@ import unittest
 from exercise1 import reverse_string  # Make sure the import path is correct
 
 class TestExercise1(unittest.TestCase):
-
     def test_reverse_string(self):
         test_cases = [
             ('hello', 'olleh'),
